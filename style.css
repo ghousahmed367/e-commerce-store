@@ -4,10 +4,6 @@
 }
 
 @font-face {
-    font-family: cinzel;
-    src: url(assets/fonts/cinzel.ttf);
-}
-@font-face {
     font-family: BeVietnam-SemiBold;
     src: url(assets/fonts/be-vietnam/BeVietnam-SemiBold.ttf);
 }
@@ -93,8 +89,7 @@ a:hover {
 }
 
 .left_side .logo h1,.offcanvas-header .logo h1 {
-    font-family: cinzel;
-
+    font-family: Alaskan_malamute;
     font-size: 34px;
 }
 
