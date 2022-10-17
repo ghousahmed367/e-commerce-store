@@ -1,3 +1,34 @@
+let register_btn = document.getElementById("submitt");
+let userName = document.getElementById("user_name");
+let email = document.getElementById("email");
+let password = document.getElementById("password");
+let confirmPassword = document.getElementById("confirmPassword");
+
+register_btn.addEventListener("click", function () {
+    // event.preventDefault();
+    if (/^\s*[0-9a-zA-Z][0-9a-zA-Z ]*$/.test(userName.value)) {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) {
+            if (/^(?=.*[0-9])(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{8,16}$/.test(password.value)) {
+                if (password.value === confirmPassword.value) {
+                    console.log("User done")
+                    registerUser();
+                } else {
+                    Swal.fire("Incorrect Password!", "Confirm Password did not match your previous password.", "error");
+                }
+            } else {
+                Swal.fire("Incorrect Password!", "Enter Password in Correct Format. Password be 8 Character long and shorter than 16 character and must contain 1 number", "error");
+            }
+        } else {
+            Swal.fire("Incorrect Email!", "Enter Email in Correct Format", "error");
+        }
+    } else {
+        Swal.fire("Incorrect Name!", "Enter Name in Correct Format", "error");
+    }
+
+});
+
+
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
     from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
@@ -16,13 +47,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
-let register_btn = document.getElementById("submitt");
 
-register_btn.addEventListener("click", function () {
-    let userName = document.getElementById("user_name");
-    let email = document.getElementById("email");
-    let password = document.getElementById("password");
-    let confirmPassword = document.getElementById("confirmPassword");
+function registerUser() {
     createUserWithEmailAndPassword(auth, email.value, password.value, confirmPassword.value, userName.value)
         .then(async (userCredential) => {
             const user = userCredential.user;
@@ -31,9 +57,13 @@ register_btn.addEventListener("click", function () {
             await setDoc(doc(db, "users", user.uid), {
                 userName: userName.value,
                 email: email.value,
-                password: password,
-                confirmPassword: confirmPassword,
+                password: password.value,
+                confirmPassword: confirmPassword.value,
             });
+            userName.value = "";
+            email.value = "";
+            password.value = "";
+            confirmPassword.value = "";
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -42,31 +72,42 @@ register_btn.addEventListener("click", function () {
             Swal.fire("Invalid!", errorMessage);
 
         });
-})
-
+}
 let login_btn = document.getElementById("my_login");
+let login_Email = document.getElementById("login_email");
+let login_Password = document.getElementById("login_password");
+
 login_btn.addEventListener("click", function () {
-    let login_Email = document.getElementById("login_email");
-    let login_Password = document.getElementById("login_password");
+    event.preventDefault();
 
-    signInWithEmailAndPassword(auth, login_Email.value, login_Password.value)
-        .then(async (userCredential) => {
-            const user = userCredential.user;
-            Swal.fire({
-                icon: 'success',
-                text: 'Login Succesfully',
-            })
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(login_Email.value)) {
+        if (/^(?=.*[0-9])(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{8,16}$/.test(login_Password.value)) {
 
-            setTimeout(() => {
-                window.location = "./index.html"
-            }, 1500)
+            signInWithEmailAndPassword(auth, login_Email.value, login_Password.value)
+                .then(async (userCredential) => {
+                    const user = userCredential.user;
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Login Succesfully',
+                    })
 
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            Swal.fire("Error!", "Invalid!", errorMessage);
-        });
+                    setTimeout(() => {
+                        window.location = "./index.html"
+                    }, 1500)
+
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    Swal.fire("Error!", "Invalid!", errorMessage);
+                });
+
+        } else {
+            Swal.fire("Incorrect Password!", "Enter Password in Correct Format.", "error");
+        }
+    } else {
+        Swal.fire("Incorrect Email!", "Enter Email in Correct Format.", "error");
+    }
 })
 
 
