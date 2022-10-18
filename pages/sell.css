@@ -1,0 +1,151 @@
+* {
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+  }
+  body {
+    font-family:"Raleway",sans-serif;
+    background:#f8f8f8;
+  }
+  .form {
+    margin:20px 0px 20px;
+    padding:0px 100px;
+  }
+  .form h2 {
+    /* text-align:center; */
+    color:#333;
+    font-size:40px;
+    font-weight:400;
+  }
+  .form .grid {
+    margin-top:25px;
+    display:flex;
+    /* justify-content:space-around; */
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .form .grid .form-element {
+    width: 346px;
+    height: 410px;
+    box-shadow:0px 0px 20px 5px rgba(100,100,100,0.1);
+  }
+  .form .grid .form-element input {
+    display:none;
+  }
+  .form .grid .form-element img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .form .grid .form-element div {
+    position:relative;
+    height:40px;
+    margin-top:-40px;
+    background:rgba(0,0,0,0.5);
+    text-align:center;
+    line-height:40px;
+    font-size:13px;
+    color:#f5f5f5;
+    font-weight:600;
+  }
+  .form .grid .form-element div span {
+    font-size:40px;
+  }
+
+  .sell-page{
+    height: 557px;
+}
+
+#file-1-preview{
+    height: 383px;
+    width: 100%;
+}
+
+
+  /* price field  */
+  :focus {
+    outline: none;
+}
+.col-3 {
+    float: left;
+    width: 99%;
+    margin: 40px 3%;
+    position: relative;
+} /* necessary to give position: relative to parent. */
+.effect-17 {
+    font: 15px/24px "Lato", Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.4);
+    height: 37px;
+    padding-left: 5px;
+}
+
+
+.effect-17 ~ .focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #E61D2B;
+    transition: 0.4s;
+}
+.effect-17:focus ~ .focus-border,
+.has-content.effect-17 ~ .focus-border {
+    width: 100%;
+    transition: 0.4s;
+    left: 0;
+}
+.effect-17 ~ label {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 9px;
+    color: #aaa;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+.effect-17:focus ~ label,
+.has-content.effect-17 ~ label {
+    top: -23px;
+    font-size: 13px;
+    color: #E61D2B;
+    transition: 0.3s;
+}
+.price-description{
+    width: 33%;
+    margin-left: 10%;
+}
+.des input::placeholder{
+    position: relative;
+    bottom: 37px;
+}
+.description-field{
+    height: 138px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0,0,0,.4);
+    resize: none;
+}
+.des .focus-border{
+    position: absolute;
+    bottom: 4px;
+}
+.post-btn{
+    background-color: #E61D2B !important;
+    margin-left: 5px;
+    width: 100%;
+    border: none;
+    height: 40px;
+    --bs-btn-focus-shadow-rgb: 230, 29, 43;
+
+}
+.post-btn:hover{
+    background-color: #E61D2B;
+
+}

@@ -890,3 +890,13 @@ footer{
 .footer_icon:hover{
     cursor: pointer;
 }
+
+
+/* chat css  */
+.chat{
+    position: absolute;
+    bottom: 15px;
+    right: 30px;
+}
+
+
