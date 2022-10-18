@@ -2074,6 +2074,7 @@
                                         class="login_mob">Login</span></a>
                             </div>
                         </li>
+                        
                         <!-- Navbar Rigth Side End -->
                         <!-- for mobile toggle  -->
 
@@ -2122,12 +2123,32 @@
                     <ul>
                         <li><a href="#"><img class="loc" src="assets/img/icons/location.svg"><span>Lahore</span></a>
                         </li>
+                        
+                        <li><a href="#"><img class="loc" src="assets/img/icons/user.png"><span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Profile</span></a></li>
                         <li><a href="#"><img src="assets/img/icons/wishlist.svg"><span>Saved</span></a></li>
                         <li><a href="#"><img src="assets/img/icons/cart.svg"><span>Rs.350</span></a></li>
 
                     </ul>
                 </div>
             </div>
+            <!-- profile start -->
+            
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                  <!-- <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5> -->
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <center>
+                <div class="offcanvas-body">
+                  <h3 class="profImg"></h3>
+                  <h3 id="nameProf"></h3>
+                  <h3 id="emailProf"></h3>
+                  
+                </div>
+                </center>
+              </div>
+              <!-- profile end -->
+              
 
 
 
@@ -2150,6 +2171,7 @@
             </div>
             <ul>
                 <li><a href="#"><img class="loc" src="assets/img/icons/location.svg"></a></li>
+                <!-- <li><a href="#"><img src="assets/img/icons/user.png"><span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"></span></a></li> -->
                 <li><a href="#"><img src="assets/img/icons/wishlist.svg"></a></li>
                 <li><a href="#"><img src="assets/img/icons/cart.svg"></a></li>
                 <li>
@@ -2158,10 +2180,11 @@
                         <a href="#" class="custom_btn">Start Selling</a>
                     </div>
                 </li>
+                
 
             </ul>
 
-
+            
         </div>
         <div class="offcanvas-body">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -2177,6 +2200,7 @@
                 </li>
 
             </ul>
+            
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <div class="menu">
