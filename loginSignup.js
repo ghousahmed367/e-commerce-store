@@ -1,16 +1,24 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
     from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-import { doc, setDoc, getFirestore }
+import { doc, setDoc, getFirestore,
+     getDoc  }
     from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 const firebaseConfig = {
-    apiKey: "AIzaSyDmf2D-r9b1pcPxG3G0EmRBijDlpXdR7HI",
-    authDomain: "login-with-firebase-7fb17.firebaseapp.com",
-    projectId: "login-with-firebase-7fb17",
-    storageBucket: "login-with-firebase-7fb17.appspot.com",
-    messagingSenderId: "451708925508",
-    appId: "1:451708925508:web:d06ec5b9907cbd72a06e11",
+    apiKey: "AIzaSyBKYcD_35A49akt0OitN62MQbMCwcKGvuU",
+  authDomain: "saylani-project-assignment.firebaseapp.com",
+  projectId: "saylani-project-assignment",
+  storageBucket: "saylani-project-assignment.appspot.com",
+  messagingSenderId: "677719458063",
+  appId: "1:677719458063:web:11e29676238dbb299cfe7a"
 };
+
+// apiKey: "AIzaSyDmf2D-r9b1pcPxG3G0EmRBijDlpXdR7HI",
+//     authDomain: "login-with-firebase-7fb17.firebaseapp.com",
+//     projectId: "login-with-firebase-7fb17",
+//     storageBucket: "login-with-firebase-7fb17.appspot.com",
+//     messagingSenderId: "451708925508",
+//     appId: "1:451708925508:web:d06ec5b9907cbd72a06e11",
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
@@ -31,8 +39,8 @@ register_btn.addEventListener("click", function () {
             await setDoc(doc(db, "users", user.uid), {
                 userName: userName.value,
                 email: email.value,
-                password: password,
-                confirmPassword: confirmPassword,
+                password: password.value,
+                confirmPassword: confirmPassword.value,
             });
         })
         .catch((error) => {
@@ -56,6 +64,17 @@ login_btn.addEventListener("click", function () {
                 icon: 'success',
                 text: 'Login Succesfully',
             })
+            
+            const docRef = doc(db, "users", user.uid);
+const docSnap = await getDoc(docRef);
+console.log(docSnap.data())
+if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+  window.localStorage.setItem("users", JSON.stringify(docSnap.data()))
+} else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
+}
 
             setTimeout(() => {
                 window.location = "./index.html"

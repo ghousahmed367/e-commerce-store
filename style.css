@@ -549,6 +549,14 @@ li.cat1 {
   top: 20px;
   background: #dddddd;
 }
+.profImg{
+    width: 200px;
+    height: 200px;
+    border: 2px solid #E61D2B;
+    border-radius: 100px;
+}
+
+
 
 @media screen and (max-width:1199px) {
 
@@ -592,6 +600,10 @@ li.cat1 {
 }
 
 @media screen and (max-width:992px) {
+
+    /* .profileUser{
+        /* display: none; */
+    /* }  */
    
     .buttons .login_button a, .buttons .start_sell a {
         width: 80%;
