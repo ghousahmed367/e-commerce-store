@@ -142,3 +142,5 @@ function openSearch() {
 
 
   document.getElementsByTagName("body").style.backgroundColor = 'rgb(224,224,224)';
+
+  
