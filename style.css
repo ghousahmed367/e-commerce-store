@@ -413,6 +413,15 @@ li.cat1 ul {
 li.cat1 {
     position: relative;
 }
+.carousel-caption{
+text-align-last: left;
+/* text-shadow: 5px  burlywood; */
+}
+.carousel-caption.d-none.d-md-block {
+    position: absolute;
+    color:#16161D;
+    text-shadow: #192525 1px 1px;
+    top: 24%;}
 
 
 /* mobile tabs  */
