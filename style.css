@@ -405,7 +405,9 @@ input.form-control {
 .img_part img {
     width: 100%;
 }
-
+.index{
+    z-index: -1;
+}
 li.cat1 ul {
     position: absolute;
 }
